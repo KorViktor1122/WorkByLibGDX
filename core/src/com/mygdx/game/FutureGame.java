@@ -13,7 +13,7 @@ public class FutureGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("mavr.jpg");
+		img = new Texture("mavrkin.jpg");
 	}
 
 	@Override
