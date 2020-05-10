@@ -9,30 +9,33 @@ public class MainScreen extends BaseScreen {
 
     private Texture img;
 
+    private static final float V_Len = 0.8f;
+
     private Vector2 starPossion;
-    private Vector2 choosepoint;
-   // private Vector2 speedVektor;
+    private Vector2 choosePoint;
     private Vector2 touch;
+    private Vector2 common;
 
     @Override
     public void show() {
         super.show();
         img = new Texture("mavr-2.jpg");
-        starPossion = new Vector2(80,100);
-        choosepoint = new Vector2();
-      //  speedVektor = new Vector2(1,1);
+        starPossion = new Vector2();
+        choosePoint = new Vector2();
         touch = new Vector2();
+        common = new Vector2();
     }
 
     @Override
     public void render(float delta) {
         super.render(delta);
-        starPossion = new Vector2();
-        choosepoint = new Vector2(touch.set(touch.x, touch.y));
-        starPossion.add(choosepoint);
-        starPossion.len();
-        System.out.println("touch X " + starPossion.x + " touch Y " + starPossion.y + "\n" + "Lenght = " + starPossion.len());
-        System.out.println("---------");
+        common.set(touch);
+        if(common.sub(starPossion).len() > V_Len) {
+            starPossion.add(choosePoint);
+        } else {
+            starPossion.set(touch);
+            choosePoint.setZero();
+        }
         batch.begin();
         batch.draw(img, starPossion.x, starPossion.y);
         batch.end();
@@ -48,7 +51,8 @@ public class MainScreen extends BaseScreen {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         touch.set(screenX, Gdx.graphics.getHeight()-screenY);
         System.out.println("touch X = " + touch.x + " touch Y = " + touch.y);
-        choosepoint.set(touch);
+        choosePoint.set(touch.cpy().sub(starPossion));
+        choosePoint.setLength(V_Len);
         return super.touchDown(screenX, screenY, pointer, button);
     }
 }
