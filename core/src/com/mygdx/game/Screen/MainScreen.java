@@ -3,8 +3,8 @@ package com.mygdx.game.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.Base.BaseScreen;
-import com.mygdx.game.Spirite.Background;
-import com.mygdx.game.Spirite.Logo;
+import com.mygdx.game.Sprite.Background;
+import com.mygdx.game.Sprite.Logo;
 import com.mygdx.game.math.Rect;
 public class MainScreen extends BaseScreen {
 
