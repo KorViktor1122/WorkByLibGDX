@@ -7,7 +7,7 @@ import com.mygdx.game.Screen.MainScreen;
 public class FutureGame extends Game {
     @Override
     public void create() {
-        setScreen(new MainScreen());
+        setScreen(new MainScreen(this));
     }
 }
 

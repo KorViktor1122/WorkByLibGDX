@@ -22,19 +22,19 @@ public class Rect {
         this.halfHeight = halfHeight;
     }
 
-    protected float getLeft() {
+    public float getLeft() {
         return pos.x - halfWidth;
     }
 
-    private float getTop() {
+    public float getTop() {
         return pos.y + halfHeight;
     }
 
-    private float getRight() {
+    public float getRight() {
         return pos.x + halfWidth;
     }
 
-    protected float getBottom() {
+    public float getBottom() {
         return pos.y - halfHeight;
     }
 
