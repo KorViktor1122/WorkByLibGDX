@@ -1,9 +1,9 @@
 package com.mygdx.game.math;
 
-
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.math.Vector2;
 
-public class Rect {
+public class Rect extends ApplicationAdapter {
     public final Vector2 pos = new Vector2();
     protected float halfWidth;
     protected float halfHeight;
@@ -68,7 +68,7 @@ public class Rect {
         pos.y = top - halfHeight;
     }
 
-    public void setRight(float right) {
+    protected void setRight(float right) {
         pos.x = right - halfWidth;
     }
 
@@ -89,11 +89,11 @@ public class Rect {
         this.halfHeight = height / 2f;
     }
 
-    public boolean isMe(Vector2 touch) {
+    protected boolean isMe(Vector2 touch) {
         return touch.x >= getLeft() && touch.x <= getRight() && touch.y >= getBottom() && touch.y <= getTop();
     }
 
-    public boolean isOutside(Rect other) {
+    protected boolean isOutside(Rect other) {
         return getLeft() > other.getRight() || getRight() < other.getLeft() || getBottom() > other.getTop() || getTop() < other.getBottom();
     }
 

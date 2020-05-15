@@ -2,6 +2,7 @@ package com.mygdx.game.Screen;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
@@ -23,10 +24,23 @@ public class MainScreen extends BaseScreen {
     private ButtonPlay buttonPlay;
     private Star[] stars;
 
+    private Music music;
+
     public MainScreen(Game game) {
         this.game = game;
     }
 
+    @Override
+    public void create() {
+
+        super.create();
+        music = Gdx.audio.newMusic(Gdx.files.internal("we_are_the_energy.mp3"));
+
+        music.setVolume(10.0f);
+        music.setLooping(true);
+        music.play();
+
+    }
 
     @Override
     public void show() {
@@ -40,7 +54,6 @@ public class MainScreen extends BaseScreen {
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star(atlas);
         }
-
     }
 
     @Override
@@ -52,7 +65,6 @@ public class MainScreen extends BaseScreen {
                 star.resize(worldBounds);
             }
         }
-    
 
     @Override
     public void render(float delta) {
@@ -65,6 +77,7 @@ public class MainScreen extends BaseScreen {
     public void dispose(){
             bg.dispose();
             atlas.dispose();
+            music.dispose();
             super.dispose();
     }
 
@@ -98,6 +111,5 @@ public class MainScreen extends BaseScreen {
             buttonPlay.draw(batch);
             batch.end();
         }
-
 
 }

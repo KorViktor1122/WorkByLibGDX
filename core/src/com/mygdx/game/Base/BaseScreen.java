@@ -1,6 +1,7 @@
 package com.mygdx.game.Base;
 
 
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
@@ -12,13 +13,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.math.MatrixUtils;
 import com.mygdx.game.math.Rect;
 
-public class BaseScreen implements Screen, InputProcessor {
+public class BaseScreen extends ApplicationAdapter implements Screen, InputProcessor {
 
     protected SpriteBatch batch;
 
-
     private Rect screenBounds;
     private Rect worldBounds;
+
     private Rect glBounds;
 
     private Matrix4 worldToGl;
@@ -36,6 +37,11 @@ public class BaseScreen implements Screen, InputProcessor {
         worldToGl = new Matrix4();
         screenToWorld = new Matrix3();
         touch = new Vector2();
+    }
+
+    @Override
+    public void create() {
+
     }
 
     @Override

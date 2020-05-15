@@ -38,8 +38,8 @@ public class Star extends Sprite {
         setScale(getScale() - 0.008f);
         animateTimer += delta;
         if (animateTimer >= animateInterval) {
-            setScale(1f);
-            animateTimer = 0f;
+            setScale(1.0f);
+            animateTimer = 0.0f;
         }
         pos.mulAdd(v, delta);
         checkBounds();
@@ -53,7 +53,7 @@ public class Star extends Sprite {
             setRight(worldBounds.getLeft());
         }
         if (getTop() < worldBounds.getBottom()) {
-            setBottom(worldBounds.getTop());
+           setBottom(worldBounds.getTop());
         }
     }
 }

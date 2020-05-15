@@ -1,6 +1,5 @@
 package com.mygdx.game.math;
 
-
 import java.util.Random;
 
 public class Rnd {
