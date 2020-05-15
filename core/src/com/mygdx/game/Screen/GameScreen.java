@@ -12,10 +12,8 @@ import com.mygdx.game.math.Rect;
 
 public class GameScreen extends BaseScreen {
 
-    private static final float V_LEN = 0.5f;
 
     private Texture bg;
-    private TextureAtlas ship;
     private Background background;
     private ShipSpace shipSpace;
     private TextureAtlas atlas;
@@ -27,13 +25,13 @@ public class GameScreen extends BaseScreen {
         super.show();
         bg = new Texture("bg.png");
         background = new Background(bg);
-        ship = new TextureAtlas("mainAtlas.tpack");
-        shipSpace = new ShipSpace(ship);
         atlas = new TextureAtlas(Gdx.files.internal("menuAtlas.tpack"));
-        stars = new Star[256];
+        stars = new Star[80];
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star(atlas);
         }
+        TextureAtlas ship = new TextureAtlas("mainAtlas.tpack");
+        shipSpace = new ShipSpace(ship);
     }
 
     @Override
@@ -46,11 +44,10 @@ public class GameScreen extends BaseScreen {
     @Override
     public void resize(Rect worldBounds) {
         background.resize(worldBounds);
-        shipSpace.resize(worldBounds);
         for (Star star : stars) {
             star.resize(worldBounds);
         }
-
+        shipSpace.resize(worldBounds);
     }
 
     @Override
@@ -62,29 +59,33 @@ public class GameScreen extends BaseScreen {
 
     @Override
     public boolean keyDown(int keycode) {
-        return super.keyDown(keycode);
+       // shipSpace.keyDown(keycode);
+        return false;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        return super.keyUp(keycode);
+       // shipSpace.keyUp(keycode);
+        return false;
     }
 
     @Override
     public boolean touchDown(Vector2 touch, int pointer, int button) {
-        return super.touchDown(touch, pointer, button);
+        shipSpace.touchDown(touch, pointer, button);
+        return false;
     }
 
     @Override
     public boolean touchUp(Vector2 touch, int pointer, int button) {
-        return super.touchUp(touch, pointer, button);
+        shipSpace.touchUp(touch, pointer, button);
+        return false;
     }
 
     private void update(float delta) {
         for (Star star : stars) {
             star.update(delta);
         }
-
+        shipSpace.update(delta);
     }
 
     private void draw() {

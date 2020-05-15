@@ -2,9 +2,13 @@ package com.mygdx.game.Base;
 
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.math.Rect;
+import com.mygdx.game.region.Regions;
+
+import javax.swing.plaf.synth.Region;
 
 public class Sprite extends Rect {
     private float angle;
@@ -15,6 +19,10 @@ public class Sprite extends Rect {
     public Sprite(TextureRegion region) {
         regions = new TextureRegion[1];
         regions[0] = region;
+    }
+
+    public Sprite(TextureRegion region, int rows, int cols, int frame) {
+        regions = Regions.split(region,rows,cols,frame);
     }
 
     protected void setHeightProportion(float height) {
