@@ -30,17 +30,6 @@ public class MainScreen extends BaseScreen {
         this.game = game;
     }
 
-    @Override
-    public void create() {
-
-        super.create();
-        music = Gdx.audio.newMusic(Gdx.files.internal("we_are_the_energy.mp3"));
-
-        music.setVolume(10.0f);
-        music.setLooping(true);
-        music.play();
-
-    }
 
     @Override
     public void show() {
@@ -54,6 +43,12 @@ public class MainScreen extends BaseScreen {
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star(atlas);
         }
+
+        music = Gdx.audio.newMusic(Gdx.files.internal("sounds/we_are_the_energy.mp3"));
+
+        music.setVolume(1.0f);
+        music.setLooping(true);
+        music.play();
     }
 
     @Override

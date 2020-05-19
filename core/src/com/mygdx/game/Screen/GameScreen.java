@@ -27,17 +27,6 @@ public class GameScreen extends BaseScreen {
     private EmenyShip emenyShip;
 
     private Music music;
-    private Sound sound;
-
-    @Override
-    public void create() {
-
-        music = Gdx.audio.newMusic(Gdx.files.internal("we_are_the_energy.mp3"));
-
-        music.setVolume(10.0f);
-        music.setLooping(true);
-        music.play();
-    }
 
     @Override
     public void show() {
@@ -52,6 +41,12 @@ public class GameScreen extends BaseScreen {
         bulletPool = new BulletPool();
         shipSpace = new ShipSpace(atlas, bulletPool);
         emenyShip = new EmenyShip(atlas);
+
+        music = Gdx.audio.newMusic(Gdx.files.internal("sounds/we_are_the_energy.mp3"));
+        music.setVolume(1.0f);
+        music.setLooping(true);
+        music.play();
+
     }
 
     @Override
@@ -77,6 +72,7 @@ public class GameScreen extends BaseScreen {
         bg.dispose();
         atlas.dispose();
         bulletPool.dispose();
+        shipSpace.dispose();
         music.dispose();
         super.dispose();
     }

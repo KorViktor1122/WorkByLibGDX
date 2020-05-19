@@ -44,25 +44,8 @@ public class ShipSpace extends Sprite  {
         v = new Vector2();
         leftPointer = INVALID_POINTER;
         rightPointer = INVALID_POINTER;
-    }
 
-    @Override
-    public void create() {
-        sound = Gdx.audio.newSound(Gdx.files.internal("bullet.ogg"));
-    }
-
-    @Override
-    public void render() {
-        Gdx.input.isKeyJustPressed(Input.Keys.UP | Input.Keys.W);
-        long id = sound.play(100.0f);
-        sound.setPitch(id, 2);
-        sound.setLooping(id, false);
-        sound.play();
-    }
-
-    @Override
-    public void dispose() {
-        sound.dispose();
+        sound = Gdx.audio.newSound(Gdx.files.internal("sounds/laser.wav"));
     }
 
     @Override
@@ -184,9 +167,14 @@ public class ShipSpace extends Sprite  {
         v.setZero();
     }
 
+    public void  dispose(){
+        sound.dispose();
+    }
+
     private void shoot() {
         Bullet bullet = bulletPool.obtain();
         bullet.set(this, bulletRegion, pos, bulletV, 0.01f, worldBounds, 1);
+        sound.play();
     }
 
 }
