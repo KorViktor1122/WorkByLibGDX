@@ -1,15 +1,13 @@
 package com.mygdx.game.math;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.math.Vector2;
 
-public class Rect extends ApplicationAdapter {
+public class Rect {
     public final Vector2 pos = new Vector2();
     protected float halfWidth;
     protected float halfHeight;
 
     public Rect() {
-
     }
 
     public Rect(Rect from) {
@@ -38,7 +36,7 @@ public class Rect extends ApplicationAdapter {
         return pos.y - halfHeight;
     }
 
-    private float getHalfWidth() {
+    public float getHalfWidth() {
         return halfWidth;
     }
 
