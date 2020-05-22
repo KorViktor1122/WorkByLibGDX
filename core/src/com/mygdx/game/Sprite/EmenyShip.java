@@ -10,7 +10,7 @@ import com.mygdx.game.pool.ExplosionPool;
 
 public class EmenyShip extends Ship {
 
-    private static final float MARGIN = 1.0f;
+    private static final float V_Y = -0.3f;
 
     public EmenyShip(BulletPool bulletPool, ExplosionPool explosionPool, Rect worldBounds, Sound sound) {
         super(bulletPool, explosionPool, worldBounds, sound);
@@ -27,9 +27,9 @@ public class EmenyShip extends Ship {
         if (getBottom() <= worldBounds.getBottom()) {
             destroy();
         }
-
-        if(getTop() <= worldBounds.getTop() - MARGIN){
-                shoot();
+        if(getTop() < worldBounds.getTop() ){
+            v.set(v0);
+                autoShoot(delta);
             }
     }
 
@@ -54,6 +54,6 @@ public class EmenyShip extends Ship {
         this.reloadTimer = reloadInterval;
         this.hp = hp;
         setHeightProportion(height);
-        this.v.set(v0);
+        v.set(0,V_Y);
     }
 }

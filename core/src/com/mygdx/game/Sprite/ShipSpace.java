@@ -49,6 +49,7 @@ public class ShipSpace extends Ship {
     @Override
     public void update(float delta) {
         super.update(delta);
+        autoShoot(delta);
         if (getLeft() < worldBounds.getLeft()) {
             stop();
             setLeft(worldBounds.getLeft());

@@ -44,7 +44,7 @@ public class MainScreen extends BaseScreen {
             stars[i] = new Star(atlas);
         }
 
-        music = Gdx.audio.newMusic(Gdx.files.internal("sounds/we_are_the_energy.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("sounds/music.mp3"));
 
         music.setVolume(1.0f);
         music.setLooping(true);

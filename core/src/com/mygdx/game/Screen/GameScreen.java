@@ -46,7 +46,7 @@ public class GameScreen extends BaseScreen {
         enemyPool = new EnemyPool(bulletPool,explosionPool,worldBounds);
         shipSpace = new ShipSpace(atlas, bulletPool,explosionPool);
         enemyEmitter = new EnemyEmitter(atlas,enemyPool);
-        music = Gdx.audio.newMusic(Gdx.files.internal("sounds/we_are_the_energy.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("sounds/music.mp3"));
         music.setVolume(1.0f);
         music.setLooping(true);
         music.play();

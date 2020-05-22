@@ -56,13 +56,9 @@ public class Ship extends Sprite {
     public void update(float delta) {
         super.update(delta);
         pos.mulAdd(v, delta);
-
-        reloadTimer += delta;
-        if (reloadTimer >= reloadInterval) {
-            shoot();
-            reloadTimer = 0f;
-        }
+        //autoShoot(delta);
     }
+
 
     @Override
     public void destroy() {
@@ -70,14 +66,22 @@ public class Ship extends Sprite {
         boom();
     }
 
-    protected void shoot() {
-        Bullet bullet = bulletPool.obtain();
-        bullet.set(this, bulletRegion, pos, bulletV, bulletHeight, worldBounds, damage);
-        sound.play();
+    public void autoShoot(float delta) {
+        reloadTimer += delta;
+        if (reloadTimer >= reloadInterval) {
+            shoot();
+            reloadTimer = 0f;
+        }
     }
 
-    private void boom() {
-        Explosion explosion = explosionPool.obtain();
-        explosion.set(getHeight(), pos);
+        protected void shoot(){
+            Bullet bullet = bulletPool.obtain();
+            bullet.set(this, bulletRegion, pos, bulletV, bulletHeight, worldBounds, damage);
+            sound.play();
+        }
+
+        private void boom(){
+            Explosion explosion = explosionPool.obtain();
+            explosion.set(getHeight(), pos);
+        }
     }
-}
