@@ -23,13 +23,11 @@ public class MainScreen extends BaseScreen {
     private ButtonExit buttonExit;
     private ButtonPlay buttonPlay;
     private Star[] stars;
-
     private Music music;
 
     public MainScreen(Game game) {
         this.game = game;
     }
-
 
     @Override
     public void show() {
@@ -45,8 +43,6 @@ public class MainScreen extends BaseScreen {
         }
 
         music = Gdx.audio.newMusic(Gdx.files.internal("sounds/music.mp3"));
-
-        music.setVolume(1.0f);
         music.setLooping(true);
         music.play();
     }

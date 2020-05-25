@@ -17,11 +17,6 @@ public class EmenyShip extends Ship {
     }
 
     @Override
-    public void resize(Rect worldBounds) {
-        this.worldBounds = worldBounds;
-    }
-
-    @Override
     public void update(float delta) {
         super.update(delta);
         if (getBottom() <= worldBounds.getBottom()) {
@@ -29,6 +24,7 @@ public class EmenyShip extends Ship {
         }
         if(getTop() < worldBounds.getTop() ){
             v.set(v0);
+            bulletPos.set(pos.x, pos.y - getHalfHeight());
                 autoShoot(delta);
             }
     }
@@ -55,5 +51,12 @@ public class EmenyShip extends Ship {
         this.hp = hp;
         setHeightProportion(height);
         v.set(0,V_Y);
+    }
+    public boolean isBulletCollision(Bullet bullet) {
+        return !(bullet.getRight() < getLeft()
+                || bullet.getLeft() > getRight()
+                || bullet.getBottom() > getTop()
+                || bullet.getTop() < pos.y
+        );
     }
 }

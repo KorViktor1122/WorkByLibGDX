@@ -49,12 +49,10 @@ public class Sprite extends Rect {
     public void resize(Rect worldBounds) {
     }
 
-    public boolean touchDown(Vector2 touch, int pointer, int button) {
-        return false;
+    public void touchDown(Vector2 touch, int pointer, int button) {
     }
 
-    public boolean touchUp(Vector2 touch, int pointer, int button) {
-        return false;
+    public void touchUp(Vector2 touch, int pointer, int button) {
     }
 
     public boolean touchDragged(int screenX, int screenY, int pointer) {
@@ -69,11 +67,11 @@ public class Sprite extends Rect {
         this.angle = angle;
     }
 
-    public float getScale() {
+    protected float getScale() {
         return scale;
     }
 
-    public void setScale(float scale) {
+    protected void setScale(float scale) {
         this.scale = scale;
     }
 
@@ -81,7 +79,7 @@ public class Sprite extends Rect {
         destroyed = true;
     }
 
-    public void flushDestroy() {
+    void flushDestroy() {
         destroyed = false;
     }
 

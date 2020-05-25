@@ -40,7 +40,7 @@ public class Rect {
         return halfWidth;
     }
 
-    private float getHalfHeight() {
+    protected float getHalfHeight() {
         return halfHeight;
     }
 
