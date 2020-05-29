@@ -49,10 +49,12 @@ public class Sprite extends Rect {
     public void resize(Rect worldBounds) {
     }
 
-    public void touchDown(Vector2 touch, int pointer, int button) {
+    public boolean touchDown(Vector2 touch, int pointer, int button) {
+        return false;
     }
 
-    public void touchUp(Vector2 touch, int pointer, int button) {
+    public boolean touchUp(Vector2 touch, int pointer, int button) {
+        return false;
     }
 
     public boolean touchDragged(int screenX, int screenY, int pointer) {
@@ -79,7 +81,7 @@ public class Sprite extends Rect {
         destroyed = true;
     }
 
-    void flushDestroy() {
+    protected void flushDestroy() {
         destroyed = false;
     }
 

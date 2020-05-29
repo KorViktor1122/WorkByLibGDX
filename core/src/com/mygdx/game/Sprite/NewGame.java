@@ -1,23 +1,46 @@
 package com.mygdx.game.Sprite;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.mygdx.game.Base.Sprite;
+import com.mygdx.game.Base.ScaledButton;
+import com.mygdx.game.Screen.GameScreen;
 import com.mygdx.game.math.Rect;
 
-public class NewGame extends Sprite{
+public class NewGame extends ScaledButton {
 
-    private Game game;
+    private static final float ANIMATE_INTERVAL = 1f;
 
-    public NewGame(TextureAtlas atlas, Game game) {
+    private float animateTimer;
+    private boolean scaleUp = true;
+    private GameScreen gameScreen;
+
+    public NewGame(TextureAtlas atlas, GameScreen gameScreen) {
         super(atlas.findRegion("button_new_game"));
-        this.game = game;
+        this.gameScreen = gameScreen;
     }
 
     @Override
-    public void resize(Rect worldBounds) {
-        setHeightProportion(0.08f);
-        setTop(-0.1f);
+    public void update(float delta) {
+        animateTimer += delta;
+        if (animateTimer >= ANIMATE_INTERVAL) {
+            animateTimer = 0f;
+            scaleUp = !scaleUp;
+        }
+        if (scaleUp) {
+            setScale(getScale() + 0.003f);
+        } else {
+            setScale(getScale() - 0.003f);
+        }
     }
 
+
+    @Override
+    public void resize(Rect worldBounds) {
+        setHeightProportion(0.05f);
+        setTop(0.1f);
+    }
+
+    @Override
+    public void action() {
+        gameScreen.startNewGame();
+    }
 }

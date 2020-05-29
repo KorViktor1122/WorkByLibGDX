@@ -7,6 +7,7 @@ import com.mygdx.game.Sprite.EmenyShip;
 import com.mygdx.game.math.Rect;
 
 public class EnemyPool extends SpritesPool<EmenyShip> {
+
     private BulletPool bulletPool;
     private ExplosionPool explosionPool;
     private Rect worldBounds;
