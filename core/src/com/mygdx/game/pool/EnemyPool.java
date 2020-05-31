@@ -21,11 +21,6 @@ public class EnemyPool extends SpritesPool<EmenyShip> {
     }
 
     @Override
-    public void updateActiveSprites(float delta) {
-        super.updateActiveSprites(delta);
-    }
-
-    @Override
     protected EmenyShip newObject() {
         return new EmenyShip( bulletPool, explosionPool, worldBounds, sound);
     }

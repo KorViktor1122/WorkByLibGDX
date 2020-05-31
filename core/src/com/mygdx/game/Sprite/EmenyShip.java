@@ -19,14 +19,14 @@ public class EmenyShip extends Ship {
     @Override
     public void update(float delta) {
         super.update(delta);
-        if (getBottom() <= worldBounds.getBottom()) {
-            destroy();
-        }
         if(getTop() < worldBounds.getTop() ){
             v.set(v0);
             bulletPos.set(pos.x, pos.y - getHalfHeight());
                 autoShoot(delta);
             }
+        if (getBottom() <= worldBounds.getBottom()) {
+            destroy();
+        }
     }
 
     public void set(

@@ -15,9 +15,8 @@ public class EnemyEmitter {
     private static final int ENEMY_SMALL_HP = 1;
     private static final float ENEMY_SMALL_BULLET_HEIGHT = 0.01f;
     private static final float ENEMY_SMALL_BULLET_VY = -0.3f;
-    private static final float ENEMY_SMALL_BULLET_VY_1 = -0.6f;
     private static final int ENEMY_SMALL_BULLET_DAMAGE = 1;
-    private static final float ENEMY_SMALL_RELOAD_INTERVAL = 1f;
+    private static final float ENEMY_SMALL_RELOAD_INTERVAL = 3f;
 
     private static final float ENEMY_MEDIUM_HEIGHT = 0.15f;
     private static final int ENEMY_MEDIUM_HP = 5;
@@ -83,7 +82,7 @@ public class EnemyEmitter {
                             enemySmallV,
                             bulletRegion,
                             ENEMY_SMALL_BULLET_HEIGHT,
-                            ENEMY_SMALL_BULLET_VY,
+                            ENEMY_SMALL_BULLET_VY * level,
                             ENEMY_SMALL_BULLET_DAMAGE * level,
                             ENEMY_SMALL_RELOAD_INTERVAL,
                             ENEMY_SMALL_HP,
@@ -95,7 +94,7 @@ public class EnemyEmitter {
                             enemyMediumV,
                             bulletRegion,
                             ENEMY_MEDIUM_BULLET_HEIGHT,
-                            ENEMY_MEDIUM_BULLET_VY,
+                            ENEMY_MEDIUM_BULLET_VY * level,
                             ENEMY_MEDIUM_BULLET_DAMAGE * level,
                             ENEMY_MEDIUM_RELOAD_INTERVAL,
                             ENEMY_MEDIUM_HP,
@@ -107,7 +106,7 @@ public class EnemyEmitter {
                             enemyBigV,
                             bulletRegion,
                             ENEMY_BIG_BULLET_HEIGHT,
-                            ENEMY_BIG_BULLET_VY,
+                            ENEMY_BIG_BULLET_VY * level,
                             ENEMY_BIG_BULLET_DAMAGE * level,
                             ENEMY_BIG_RELOAD_INTERVAL,
                             ENEMY_BIG_HP,
